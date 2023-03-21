@@ -3185,9 +3185,10 @@ PQpipelineSync(PGconn *conn)
 	 * Give the data a push.  In nonblock mode, don't complain if we're unable
 	 * to send it all; PQgetResult() will do any additional flushing needed.
 	 */
+	/* MPV - commented to allow grouping several command in one network package
 	if (PQflush(conn) < 0)
 		goto sendFailed;
-
+	*/
 	/* OK, it's launched! */
 	pqAppendCmdQueueEntry(conn, entry);
 
